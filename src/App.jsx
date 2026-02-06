@@ -8,9 +8,12 @@ import { FavoritesDrawer } from './components/FavoritesDrawer';
 import { ShareCard } from './components/ShareCard';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import { useStreak } from './hooks/useStreak';
-import { useShake } from './hooks/useShake';
+import { useTheme } from './hooks/useTheme';
+
 import { getRandomQuote, personalizeQuote, moodCategories } from './utils/quoteUtils';
 import quotes from './data/quotes.json';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import { HiGlobeAlt } from 'react-icons/hi';
 import './App.css';
 
 function App() {
@@ -25,6 +28,7 @@ function App() {
   const [showShare, setShowShare] = useState(false);
 
   const streak = useStreak();
+  const [theme, toggleTheme] = useTheme();
 
   // All categories unlocked
   const unlockedCategories = moodCategories.map(m => m.id);
@@ -47,12 +51,6 @@ function App() {
   }, [currentMood, currentQuote, userName]);
 
   const handlePrevQuote = handleNextQuote;
-
-  const handleShuffle = useCallback(() => {
-    handleNextQuote();
-  }, [handleNextQuote]);
-
-  useShake(handleShuffle);
 
   const handleFavorite = () => {
     if (!currentQuote) return;
@@ -97,8 +95,16 @@ function App() {
         <div className="header-actions">
           <StreakBadge count={streak} />
           <button
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+          >
+            {theme === 'dark' ? '☀️' : '🌙'}
+          </button>
+          <button
             className="favorites-toggle"
             onClick={() => setShowFavorites(true)}
+            aria-label={`Open favorites (${favorites.length} saved)`}
           >
             ❤️ {favorites.length}
           </button>
@@ -118,7 +124,7 @@ function App() {
             onFavorite={handleFavorite}
             onNext={handleNextQuote}
             onPrev={handlePrevQuote}
-            onShuffle={handleShuffle}
+            onShuffle={handleNextQuote}
             onShare={() => setShowShare(true)}
             onBack={handleBack}
           />
@@ -128,6 +134,25 @@ function App() {
       {userName && (
         <p className="greeting">Keep going, {userName}. You've got this.</p>
       )}
+
+      <footer className="app-footer">
+        <p className="footer-tagline">
+          Handcrafted by <strong>Yanina Trekhleb</strong> — because even job searching deserves good UI.
+          <br />
+          This spot could say <em>"your new colleague."</em>
+        </p>
+        <div className="footer-links">
+          <a href="https://yaninatrekhleb.github.io/portfolio/#/" target="_blank" rel="noopener noreferrer" title="Portfolio">
+            <HiGlobeAlt />
+          </a>
+          <a href="https://www.linkedin.com/in/yanina-trekhleb/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+            <FaLinkedin />
+          </a>
+          <a href="https://github.com/YaninaTrekhleb" target="_blank" rel="noopener noreferrer" title="GitHub">
+            <FaGithub />
+          </a>
+        </div>
+      </footer>
 
       <FavoritesDrawer
         isOpen={showFavorites}

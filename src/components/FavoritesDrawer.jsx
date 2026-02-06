@@ -6,7 +6,7 @@ export function FavoritesDrawer({ isOpen, onClose, favorites, onRemove }) {
       <div className="favorites-drawer" onClick={(e) => e.stopPropagation()}>
         <div className="drawer-header">
           <h3>Your Favorites</h3>
-          <button className="close-btn" onClick={onClose}>×</button>
+          <button className="close-btn" onClick={onClose} aria-label="Close favorites">×</button>
         </div>
 
         {favorites.length === 0 ? (
@@ -21,7 +21,7 @@ export function FavoritesDrawer({ isOpen, onClose, favorites, onRemove }) {
                 <button
                   className="remove-btn"
                   onClick={() => onRemove(quote)}
-                  title="Remove from favorites"
+                  aria-label="Remove from favorites"
                 >
                   ×
                 </button>

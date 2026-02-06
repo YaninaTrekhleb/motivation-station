@@ -1,16 +1,62 @@
-# React + Vite
+# Motivation Station
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Pick your mood. Get a quote. Keep going.**
 
-Currently, two official plugins are available:
+A feel-good motivational quote app for anyone navigating the job search — whether you just got rejected, ghosted by a recruiter, battling imposter syndrome, or simply need a boost before your next interview.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Because job searching is tough, and sometimes all you need is the right words at the right time.
 
-## React Compiler
+## Live Demo
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+[motivation-station](https://yaninatrekhleb.github.io/motivation-station/)
 
-## Expanding the ESLint configuration
+## Who is this for?
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Job seekers who need a pick-me-up between applications
+- Anyone dealing with rejection, burnout, or the dreaded "we went with another candidate" email
+- People who believe good UI can make a bad day a little better
+
+## Features
+
+- **8 mood categories** — Rejected, Interview Anxiety, Imposter Syndrome, Waiting, Ghosted, Another Candidate, Burnout, and General Boost
+- **320 motivational quotes** — 40 per mood, curated for real job search moments
+- **Personalized quotes** — enter your name and quotes adapt to you
+- **Favorites** — save quotes you love, copy them all to clipboard
+- **Daily streak** — tracks how many days in a row you visit (because consistency matters)
+- **Shareable quote cards** — download or copy quotes as styled PNG images
+- **Swipe navigation** — swipe through quotes on mobile, or use arrow keys on desktop
+- **Random quote** — tap the dice for a surprise
+- **Confetti** — because adding a quote to favorites should feel like a celebration
+- **Dark mode** — follows your system preference automatically
+- **PWA** — installable on your phone as a standalone app
+- **Accessible** — aria-labels, keyboard navigation, reduced motion support
+
+## Tech Stack
+
+- React 19
+- Vite
+- CSS custom properties (no UI library)
+- react-icons
+- html2canvas (for shareable quote images)
+- Deployed on GitHub Pages
+
+## Run Locally
+
+```bash
+git clone https://github.com/YaninaTrekhleb/motivation-station.git
+cd motivation-station
+npm install
+npm run dev
+```
+
+## Deploy
+
+```bash
+npm run deploy
+```
+
+Deploys to GitHub Pages via `gh-pages`.
+
+---
+
+Handcrafted by **Yanina Trekhleb** — because even job searching deserves good UI.

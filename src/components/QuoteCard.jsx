@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-
 export function QuoteCard({
   quote,
   isFavorite,
@@ -25,14 +24,10 @@ export function QuoteCard({
     const handleKeyDown = (e) => {
       if (e.key === 'ArrowRight') onNext();
       if (e.key === 'ArrowLeft') onPrev();
-      if (e.key === ' ') {
-        e.preventDefault();
-        onShuffle();
-      }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onNext, onPrev, onShuffle]);
+  }, [onNext, onPrev]);
 
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
@@ -72,32 +67,32 @@ export function QuoteCard({
       </div>
 
       <div className="quote-actions">
-        <button className="action-btn nav-btn" onClick={onPrev} title="Previous">
+        <button className="action-btn nav-btn" onClick={onPrev} aria-label="Previous quote">
           ←
         </button>
 
         <button
           className={`action-btn favorite-btn ${isFavorite ? 'is-favorite' : ''}`}
           onClick={onFavorite}
-          title={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+          aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
         >
           {isFavorite ? '❤️' : '🤍'}
         </button>
 
-        <button className="action-btn shuffle-btn" onClick={onShuffle} title="Shuffle (or shake phone!)">
+        <button className="action-btn shuffle-btn" onClick={onShuffle} aria-label="Random quote">
           🎲
         </button>
 
-        <button className="action-btn share-btn" onClick={onShare} title="Share this quote">
+        <button className="action-btn share-btn" onClick={onShare} aria-label="Share this quote">
           📤
         </button>
 
-        <button className="action-btn nav-btn" onClick={onNext} title="Next">
+        <button className="action-btn nav-btn" onClick={onNext} aria-label="Next quote">
           →
         </button>
       </div>
 
-      <p className="hint-text">Swipe or use arrow keys • Spacebar to shuffle</p>
+      <p className="hint-text">Swipe or use arrow keys</p>
     </div>
   );
 }

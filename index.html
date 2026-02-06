@@ -2,12 +2,43 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>motivation-station</title>
+
+    <title>Motivation Station — Daily Quotes for Job Seekers | Yanina Trekhleb</title>
+    <meta name="description" content="Motivation Station — a mood-based motivational quote app for job seekers. Pick your mood, get inspired, and keep going. Built by Yanina Trekhleb." />
+    <meta name="author" content="Yanina Trekhleb" />
+    <meta name="theme-color" content="#805AD5" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1A1225" media="(prefers-color-scheme: dark)" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Motivation Station — Daily Quotes for Job Seekers" />
+    <meta property="og:description" content="Pick your mood, get a motivational quote, and keep going. A feel-good app for anyone navigating the job search." />
+    <meta property="og:url" content="https://yaninatrekhleb.github.io/motivation-station/" />
+    <meta property="og:image" content="https://yaninatrekhleb.github.io/motivation-station/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Motivation Station — Daily Quotes for Job Seekers" />
+    <meta name="twitter:description" content="Pick your mood, get a motivational quote, and keep going." />
+    <meta name="twitter:image" content="https://yaninatrekhleb.github.io/motivation-station/og-image.png" />
+
+    <!-- Favicon & PWA -->
+    <link rel="icon" type="image/svg+xml" href="/motivation-station/favicon.svg" />
+    <link rel="apple-touch-icon" href="/motivation-station/apple-touch-icon.png" />
+    <link rel="manifest" href="/motivation-station/manifest.json" />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/motivation-station/sw.js');
+        });
+      }
+    </script>
   </body>
 </html>

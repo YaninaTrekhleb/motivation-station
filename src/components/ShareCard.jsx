@@ -60,7 +60,7 @@ export function ShareCard({ quote, isOpen, onClose }) {
   return (
     <div className="share-overlay" onClick={onClose}>
       <div className="share-modal" onClick={(e) => e.stopPropagation()}>
-        <button className="close-btn" onClick={onClose}>×</button>
+        <button className="close-btn" onClick={onClose} aria-label="Close share dialog">×</button>
 
         <div ref={cardRef} className="share-card-preview">
           <div className="share-card-content">
