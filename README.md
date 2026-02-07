@@ -6,6 +6,8 @@ A feel-good motivational quote app for anyone navigating the job search — whet
 
 Because job searching is tough, and sometimes all you need is the right words at the right time.
 
+![Motivation Station Screenshot](src/img/motivation-station.png)
+
 ## Live Demo
 
 [motivation-station](https://yaninatrekhleb.github.io/motivation-station/)
@@ -30,6 +32,17 @@ Because job searching is tough, and sometimes all you need is the right words at
 - **Dark mode** — follows your system preference automatically
 - **PWA** — installable on your phone as a standalone app
 - **Accessible** — aria-labels, keyboard navigation, reduced motion support
+
+## Why I Built This
+
+Job searching is emotionally exhausting. Between rejections, ghosting, and imposter syndrome, it's easy to lose momentum.
+
+I wanted to build something that:
+1. Actually helps people (including myself) during tough moments
+2. Demonstrates my technical skills in a creative way
+3. Shows I can ship a polished product from idea to deployment
+
+This app is my way of saying: job searching is hard, but you're not alone in it.
 
 ## Tech Stack
 
